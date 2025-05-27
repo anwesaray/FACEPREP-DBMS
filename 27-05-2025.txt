@@ -1,0 +1,46 @@
+#JSON DATA FORMAT
+JAVASCRIPT OBJECT NOTATION
+{
+"name" : "anuj";
+"age" : 21;
+"gender" : "male";
+"married":false;
+"address":
+{
+"street":"cherry Road",
+"city":"salem";
+"state":"tamil nadu"
+},
+
+#mongosh: practices
+admin>show databases
+admin>use vit
+<switched to db vit
+vit>db.dropDatabases()
+<{ok:1, dropped:'vit'}
+vit>db
+<vit
+admin>use vit
+<already on db vit
+vit>db.createCollection("Student")
+<{ok:1}
+vit>show databases
+vit>show collections
+<Student
+vit>db.Student.drop()
+vit>showcollections
+vit>db.createCollection("Student")
+vit>db.Student.insertOne({name:'jayanth',company:'faceprep'})
+vit>db.Student.insertOne({name:'tamilarasan',company:'faceprep'})
+vit>
+
+
+
+
+
+
+
+
+
+
+
