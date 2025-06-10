@@ -1,0 +1,177 @@
+1)package Connection;
+import org.bson.Document;
+
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+//import com.mongodb.client.MongoIterable;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+
+public class MongoDB_COMPASS {
+   public static void main(String[] args) {
+      MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+      
+      MongoDatabase database = mongoClient.getDatabase("myDb");
+      
+      
+      // retrieving a collection
+      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      
+     collection.deleteOne(Filters.eq("First_Name", "Mahesh"));
+     System.out.println("Document deleted");
+     System.out.println("Documents");
+     
+     FindIterable<Document> documents = collection.find();
+     
+     for(Document document : documents) {
+    	 System.out.println(document);
+     }
+      
+      
+   }
+}
+
+2)package Connection;
+import org.bson.Document;
+
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+//import com.mongodb.client.MongoIterable;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+
+public class MongoDB_COMPASS {
+   public static void main(String[] args) {
+      MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+      
+      MongoDatabase database = mongoClient.getDatabase("vit");
+      
+      
+      // retrieving a collection
+      MongoCollection<Document> collection = database.getCollection("sales");
+      
+     collection.deleteMany(Filters.eq("item", "Cappuccino"));
+     System.out.println("Document deleted");
+     System.out.println("Documents");
+     
+     FindIterable<Document> documents = collection.find();
+     
+     for(Document document : documents) {
+    	 System.out.println(document);
+     }
+      
+      
+   }
+}
+
+3)package Connection;
+import org.bson.Document;
+
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+//import com.mongodb.client.MongoIterable;
+//import com.mongodb.client.model.Filters;
+//import com.mongodb.client.model.Updates;
+
+public class MongoDB_COMPASS {
+   public static void main(String[] args) {
+      MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+      
+      MongoDatabase database = mongoClient.getDatabase("myDb");
+      
+      
+      // retrieving a collection
+      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      
+     
+      
+     FindIterable<Document> allDocuments = collection.find().skip(1).limit(2);
+     
+     for(Document document : allDocuments) {
+    	 System.out.println(document);
+     }
+      
+      
+   }
+}
+
+4)package Connection;
+import org.bson.Document;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoIterable;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+
+public class MongoDB_COMPASS {
+   public static void main(String[] args) {
+      MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+      
+      MongoDatabase database = mongoClient.getDatabase("myDb");
+      
+      
+      // retrieving a collection
+      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      
+     
+     
+     FindIterable<Document> allDocuments = collection.find();
+     
+     for(Document document: allDocuments) {
+    	 System.out.println(document);
+     }
+      //allDocuments = collection.find().sort(new BasicDBObject("First_Name",1));
+      
+     FindIterable<Document> allDocuments = collection.find().sort(new Document("First_Name", -1));
+      
+   }
+} 
+
+5)package Connection;
+import org.bson.Document;
+
+//import com.mongodb.BasicDBObject;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+//import com.mongodb.client.MongoIterable;
+//import com.mongodb.client.model.Filters;
+//import com.mongodb.client.model.Updates;
+import com.mongodb.client.model.Sorts;
+
+public class MongoDB_COMPASS {
+   public static void main(String[] args) {
+      MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+      
+      MongoDatabase database = mongoClient.getDatabase("myDb");
+      
+      
+      // retrieving a collection
+      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      
+     
+     // allDocuments = collection.find().sort(new BasicDBObject("First_Name",1));
+      //FindIterable<Document> allDocuments = collection.find().sort(new Document("First_Name", 1));
+      FindIterable<Document> allDocuments = collection.find().sort(Sorts.descending("First_Name"));
+      for(Document document: allDocuments) {
+     	 System.out.println(document);
+      }
+      
+   }
+}
